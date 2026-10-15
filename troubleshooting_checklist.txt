@@ -1,0 +1,70 @@
+# IT Support Troubleshooting Checklist
+
+## 1. Basic Information
+
+* Project: Enterprise IT Support & Network Troubleshooting Lab
+* Purpose: Follow a consistent process when diagnosing network connectivity issues.
+
+## 2. Troubleshooting Procedure
+
+### Step 1: Identify the Problem
+
+* [ ] Ask the user what problem they are experiencing.
+* [ ] Identify the affected computer or device.
+* [ ] Determine whether the issue affects one device or multiple devices.
+* [ ] Record any error messages.
+
+### Step 2: Check Physical Connectivity
+
+* [ ] Check whether the network cable is connected, where applicable.
+* [ ] Check link lights on the network port, where available.
+* [ ] Verify that Wi-Fi is enabled and connected, if using wireless networking.
+
+### Step 3: Check IP Configuration
+
+* [ ] Run `ipconfig /all`.
+* [ ] Check the IPv4 address.
+* [ ] Check the subnet mask.
+* [ ] Check the default gateway.
+* [ ] Check the DNS server configuration.
+
+### Step 4: Test Connectivity
+
+* [ ] Run `ping 127.0.0.1` to test the local TCP/IP stack.
+* [ ] Ping the default gateway.
+* [ ] Test connectivity to a known reachable external IP address.
+* [ ] Test connectivity using a hostname.
+
+### Step 5: Investigate DNS
+
+* [ ] Run `nslookup google.com`.
+* [ ] Check whether the hostname resolves to an IP address.
+* [ ] Record any DNS errors.
+
+### Step 6: Investigate the Network Path
+
+* [ ] Run `tracert google.com`.
+* [ ] Examine the reported network hops.
+* [ ] Note timeouts without assuming they automatically indicate a fault.
+
+### Step 7: Apply a Resolution
+
+* [ ] Identify the likely root cause using the available evidence.
+* [ ] Correct the configuration or escalate the issue if necessary.
+* [ ] Avoid changing unrelated settings.
+
+### Step 8: Verify and Document
+
+* [ ] Repeat the relevant connectivity tests.
+* [ ] Confirm whether the original problem is resolved.
+* [ ] Record the root cause and corrective action.
+* [ ] Document the final verification results.
+
+## 3. Troubleshooting Principles
+
+* Gather evidence before changing configurations.
+* Change one relevant setting at a time.
+* Record the original and corrected settings.
+* Verify the outcome after every corrective action.
+* Escalate issues that are outside your access or technical scope.
+* Do not claim an issue is resolved until verification is complete.

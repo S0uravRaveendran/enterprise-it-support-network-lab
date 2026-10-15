@@ -1,0 +1,239 @@
+https://chatgpt.com/share/6acfd610-043c-83ee-986f-70f29a6d6327
+
+
+
+🎯 Project objective
+
+Simulate an IT support environment for a small company. Configure workstations and a network, troubleshoot common IT issues, analyse network traffic, and document solutions as a support engineer would.
+
+Tools: Windows 11, Ubuntu, VMware Workstation, Cisco Packet Tracer, Wireshark, and Nmap.
+
+
+# Enterprise IT Support & Network Troubleshooting Lab
+
+## 1. Project Overview
+
+**Project Type:** IT Support and Networking Home Lab
+**Platform:** Cisco Packet Tracer
+**Status:** In Progress
+
+### Objective
+
+The objective of this project is to build and troubleshoot a simulated enterprise network using Cisco Packet Tracer. The lab demonstrates practical networking concepts, including VLAN configuration, trunking, inter-VLAN routing, IP addressing, connectivity testing, and network troubleshooting.
+
+## 2. Network Design
+
+The simulated network contains three departmental networks:
+
+| Department | VLAN ID | Network Address | Gateway      |
+| ---------- | ------: | --------------- | ------------ |
+| IT         |      10 | 192.168.10.0/24 | 192.168.10.1 |
+| HR         |      20 | 192.168.20.0/24 | 192.168.20.1 |
+| Finance    |      30 | 192.168.30.0/24 | 192.168.30.1 |
+
+### Device Configuration
+
+The lab consists of:
+
+* One router configured for inter-VLAN routing.
+* One managed switch configured with three departmental VLANs.
+* Three PCs, with one PC assigned to each department.
+* An IEEE 802.1Q trunk connecting the switch to the router.
+
+## 3. VLAN Configuration
+
+Three VLANs were created on the switch.
+
+| VLAN ID | VLAN Name | Assigned Device |
+| ------- | --------- | --------------- |
+| 10      | IT        | PC0             |
+| 20      | HR        | PC1             |
+| 30      | FINANCE   | PC2             |
+
+Each PC is connected to an access port assigned to its respective VLAN.
+
+The switch-to-router connection is configured as an 802.1Q trunk, allowing traffic from the configured VLANs to pass between the switch and router.
+
+## 4. Inter-VLAN Routing
+
+Router-on-a-stick was configured using subinterfaces on the router's FastEthernet0/0 interface.
+
+| Router Interface   | VLAN ID | IP Address   |
+| ------------------ | ------: | ------------ |
+| FastEthernet0/0.10 |      10 | 192.168.10.1 |
+| FastEthernet0/0.20 |      20 | 192.168.20.1 |
+| FastEthernet0/0.30 |      30 | 192.168.30.1 |
+
+Each subinterface uses IEEE 802.1Q encapsulation to identify its corresponding VLAN.
+
+The router provides the default gateway for each departmental network.
+
+## 5. IP Addressing
+
+The following IPv4 configuration was assigned to the PCs.
+
+| Device        | IP Address    | Subnet Mask   | Default Gateway |
+| ------------- | ------------- | ------------- | --------------- |
+| PC0 — IT      | 192.168.10.10 | 255.255.255.0 | 192.168.10.1    |
+| PC1 — HR      | 192.168.20.10 | 255.255.255.0 | 192.168.20.1    |
+| PC2 — Finance | 192.168.30.10 | 255.255.255.0 | 192.168.30.1    |
+
+## 6. Connectivity Verification
+
+Connectivity was tested using the `ping` command from the simulated PCs.
+
+The tests confirmed successful communication between devices on different VLANs.
+
+This verified that the VLAN assignments, trunk connection, router subinterfaces, and IP addressing were functioning together as intended.
+
+## 7. Configuration Backup
+
+The router and switch configurations were saved to their startup configurations using the `copy running-config startup-config` command.
+
+This preserves the saved configurations across device restarts.
+
+## 8. Skills Practised
+
+* Cisco Packet Tracer network simulation
+* VLAN creation and assignment
+* 802.1Q trunk configuration
+* Router-on-a-stick inter-VLAN routing
+* IPv4 addressing and subnet masks
+* Default gateway configuration
+* Network connectivity testing with `ping`
+* Basic network configuration verification
+* Saving router and switch configurations
+
+
+
+# Incident Report INC-001
+
+## Incident Summary
+
+**Issue:** HR workstation unable to communicate with other departmental networks
+**Affected Device:** PC1 — HR
+**Environment:** Cisco Packet Tracer
+**Category:** Network Connectivity
+**Status:** Resolved after verification
+
+### 1. Reported Symptom
+
+The HR workstation could not communicate with a device on another departmental network after its default gateway was incorrectly configured.
+
+### 2. Investigation
+
+The workstation's IP configuration was inspected. The default gateway was found to be `192.168.20.254`, instead of the correct gateway address, `192.168.20.1`.
+
+Connectivity tests were performed using the `ping` command.
+
+### 3. Root Cause
+
+Incorrect default gateway configuration on the HR workstation.
+
+### 4. Resolution
+
+The default gateway was corrected to `192.168.20.1`. The workstation's IP address and subnet mask were left unchanged.
+
+### 5. Verification
+
+Connectivity was retested against the HR gateway and a workstation in the FINANCE VLAN.
+
+**Verification results:** To be confirmed after the corrective tests are completed.
+
+### 6. Skills Demonstrated
+
+* Troubleshooting IP connectivity
+* Identifying default gateway configuration errors
+* Using `ping` to isolate network issues
+* Correcting workstation network settings
+* Verifying connectivity after a fix
+
+# Incident Report INC-001: Default Gateway Misconfiguration
+
+**Status:** Resolved
+**Environment:** Cisco Packet Tracer
+**Affected Device:** PC1 — HR
+**Category:** Network Connectivity
+
+## 1. Incident Summary
+
+The HR workstation was unable to communicate with devices on other departmental networks because its default gateway was incorrectly configured.
+
+## 2. Investigation
+
+The default gateway on PC1 was changed to `192.168.20.254` to simulate a network fault.
+
+Connectivity was tested using the `ping` command. The workstation could communicate with its local gateway, but communication with the FINANCE workstation failed.
+
+## 3. Root Cause
+
+The workstation had an incorrect default gateway. The correct gateway was `192.168.20.1`.
+
+## 4. Resolution
+
+The default gateway was restored to `192.168.20.1`. The workstation's IP address and subnet mask remained unchanged.
+
+## 5. Verification
+
+After correcting the gateway, connectivity was tested against:
+
+* HR gateway: `192.168.20.1`
+* FINANCE workstation: `192.168.30.10`
+
+**Outcome:** The user reported completing the corrective tests and capturing the resolution screenshot. Successful replies should be confirmed from the captured results before publishing this report.
+
+## 6. Skills Demonstrated
+
+* IP configuration troubleshooting
+* Default gateway diagnosis
+* Network connectivity testing with `ping`
+* Correcting workstation network settings
+* Post-resolution verification
+
+## Windows Network Troubleshooting
+
+### Environment
+
+* Operating System: Windows 11
+* Tools: Command Prompt
+* Tests: `ipconfig`, `ping`, `nslookup`, and `tracert`
+
+### 1. IP Configuration
+
+The `ipconfig /all` command was used to inspect the computer's network configuration, including its IPv4 address, subnet mask, default gateway, and DNS server settings.
+
+### 2. Connectivity Testing
+
+The `ping` command was used to test the local TCP/IP stack, connectivity to a public IP address, and connectivity using a hostname.
+
+*Record the individual ping results based on the actual command output.*
+
+### 3. DNS Resolution
+
+The `nslookup` command was used to query DNS for `google.com` and `microsoft.com`.
+
+Both queries returned IPv4 and IPv6 addresses, confirming successful DNS resolution for the tested hostnames.
+
+The DNS server appeared as `Unknown` at `fe80::1`. This did not prevent the queries from succeeding.
+
+### 4. Route Tracing
+
+The command `tracert google.com` was used to inspect the network path to Google's destination.
+
+**Observed results:**
+
+* Address family: IPv6
+* Destination: `2404:6800:4007:831::200e`
+* Reported hops: 8
+* Final-hop response times: approximately 24–25 ms
+* Final status: `Trace complete.`
+
+### 5. Skills Practised
+
+* Inspecting Windows IP configuration
+* Testing network connectivity
+* Investigating DNS resolution
+* Examining network paths
+* Interpreting IPv4 and IPv6 addresses
+* Recording network troubleshooting results
+

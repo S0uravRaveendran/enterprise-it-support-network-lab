@@ -1,0 +1,79 @@
+# IT Support Incident Reports
+
+## Incident INC-001: Incorrect Default Gateway
+
+**Environment:** Cisco Packet Tracer
+**Affected Device:** PC1 — HR
+**Category:** Network Connectivity
+**Status:** Resolved
+
+### Reported Symptom
+
+The HR workstation could not communicate with a workstation in another departmental network.
+
+### Investigation
+
+The workstation's IP configuration was inspected. Its default gateway had been incorrectly set to `192.168.20.254`.
+
+Connectivity was tested using the `ping` command.
+
+### Root Cause
+
+The workstation had an incorrect default gateway configuration.
+
+### Resolution
+
+The default gateway was corrected to `192.168.20.1`.
+
+### Verification
+
+Connectivity was retested against the HR gateway and the FINANCE workstation at `192.168.30.10`.
+
+The resolution was verified through the successful connectivity tests performed after correcting the gateway.
+
+### Skills Demonstrated
+
+* IP configuration troubleshooting
+* Default gateway diagnosis
+* Connectivity testing
+* Configuration correction
+* Post-resolution verification
+
+---
+
+## Diagnostic Test TEST-002: DNS Resolution
+
+**Environment:** Windows 11
+**Tools:** Command Prompt and `nslookup`
+**Status:** Completed successfully
+
+### Objective
+
+Verify that DNS queries for two common hostnames return IP addresses.
+
+### Procedure
+
+The following commands were executed:
+
+```text
+nslookup google.com
+nslookup microsoft.com
+```
+
+### Results
+
+Both queries returned IPv4 and IPv6 addresses.
+
+The DNS server was displayed as `Unknown` with the address `fe80::1`. Despite this label, both queries completed successfully.
+
+### Conclusion
+
+DNS resolution was working for both tested hostnames at the time of testing.
+
+### Skills Demonstrated
+
+* DNS troubleshooting fundamentals
+* Hostname resolution testing
+* IPv4 and IPv6 address interpretation
+* Command-line diagnostics
+* Technical result documentation
