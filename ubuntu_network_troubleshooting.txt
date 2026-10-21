@@ -1,0 +1,31 @@
+IT SUPPORT & NETWORKING HOME LAB
+Exercise: Ubuntu Network Troubleshooting
+
+Operating System:
+Ubuntu Linux (VirtualBox)
+
+Tools Used:
+- ip addr
+- ip route
+- ping
+- getent
+- df
+
+Tasks Performed:
+1. Inspected network interfaces and assigned IP addresses.
+2. Checked the routing table and default gateway.
+3. Tested external IP connectivity using ping.
+4. Tested domain-name resolution using getent.
+5. Checked available disk space using df -h.
+
+Skills Demonstrated:
+- Linux command-line administration
+- IP address identification
+- Routing diagnostics
+- Network connectivity troubleshooting
+- DNS resolution testing
+- Basic system administration
+
+Result:
+Commands executed to examine network configuration,
+connectivity, DNS resolution, and disk usage.

@@ -1,0 +1,27 @@
+IT SUPPORT & NETWORKING HOME LAB
+Exercise: DNS Troubleshooting with Wireshark
+
+Objective:
+Inspect DNS queries and responses to understand domain-name resolution.
+
+Tools Used:
+- Windows Command Prompt
+- Wireshark
+- nslookup
+
+Procedure:
+1. Started a packet capture on the active network interface.
+2. Executed nslookup example.com and nslookup microsoft.com.
+3. Applied the DNS display filter in Wireshark.
+4. Inspected DNS query and response packets.
+5. Examined requested domain names and returned IP addresses.
+
+Result:
+DNS packets were captured and displayed successfully.
+DNS query and response details were inspected.
+
+Skills Demonstrated:
+- DNS troubleshooting
+- Packet capture and analysis
+- Network diagnostics
+- Wireshark filtering
